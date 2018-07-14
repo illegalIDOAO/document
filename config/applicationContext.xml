@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="userDao" class="com.kaishengit.dao.UserDao" init-method="init" destroy-method="destroy"/>
+   <!-- <alias name="userDao" alias="userDao2"/>-->
+
+    <!--set方法注入-->
+    <bean id="userService" class="com.kaishengit.service.UserService">
+        <!--name对应set方法，ref对应需要注入的类-->
+        <property name="userDao" ref="userDao"/>
+        <!--<property name="userDao">
+            <ref bean="userDao"/>
+        </property>
+        <property name="userDao">
+            <bean class="com.kaishengit.dao.UserDao"/>
+        </property>-->
+    </bean>
+    <!--&lt;!&ndash; 构造方法注入，强依赖，不推荐&ndash;&gt;
+    <bean id="userService" class="com.kaishengit.service.UserService">
+        <constructor-arg name="userDao" ref="userDao"/>
+        &lt;!&ndash;<constructor-arg index="0" ref="userDao"/>&ndash;&gt;
+        &lt;!&ndash;<constructor-arg type="com.kaishengit.dao.UserDao" ref="userDao"/>&ndash;&gt;
+    </bean>-->
+    <!--自动注入-->
+    <!--<bean id="userService" class="com.kaishengit.service.UserService" autowire="byName"/>-->
+    <!--<bean id="userService" class="com.kaishengit.service.UserService" autowire="byType"/>-->
+    <!--<bean id="userService" class="com.kaishengit.service.UserService" autowire="constructor"/>-->
+
+
+    <bean id="valueService" class="com.kaishengit.service.ValueService">
+        <property name="age" value="100"/>
+        <property name="name" value="logen"/>
+        <property name="list">
+            <list>
+                <value>v1</value>
+                <value>v2</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>22342.2351</value>
+                <value>88352.251</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="map1" value="23"/>
+                <entry key="map2" value="123"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="prop1">p1</prop>
+                <prop key="prop2">p2</prop>
+            </props>
+        </property>
+
+    </bean>
+
+</beans>

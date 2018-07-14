@@ -24,6 +24,7 @@
 		<logback-version>1.2.3</logback-version>
 		<ehcache-version>2.10.4</ehcache-version>
 		<guava-version>23.0</guava-version>
+		<spring-version>4.3.18.RELEASE</spring-version>
 	</properties>
 
 	<dependencies>
@@ -149,6 +150,13 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
             <version>5.0.0</version>
+        </dependency>
+
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
         </dependency>
 	</dependencies>
 
