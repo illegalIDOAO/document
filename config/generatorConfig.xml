@@ -39,6 +39,9 @@
 
         <table tableName="" />
         <table tableName="" />
+        <!-- 例：<table tableName="t_user" domainObjectName="User" enableSelectByExample="true"/> 
+			当表名为t_user时，自动生成的类名为TUser，此时需要使用domainObjectName重命名表
+    	-->
 
     </context>
 
